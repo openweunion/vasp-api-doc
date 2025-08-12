@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Offramp Transaction Endpoints
+  operationId: getTransactionById
+  summary: Get Transaction
+  description: Returns information about a transaction that has the specified Id.
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        $ref: ../components/schemas/TransactionId.yaml
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - $ref: ../components/schemas/Transaction.yaml
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

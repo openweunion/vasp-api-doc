@@ -1,0 +1,29 @@
+type: object
+properties:
+  id:
+    $ref: ./UserId.yaml
+  email:
+    description: "The email address of the user."
+    type: string
+    example: "user@example.com"
+  walletAddress:
+    description: "The wallet address of the user."
+    type: string
+    example: "0x1234567890abcdef1234567890abcdef12345678"
+  status:
+    description: "Status of the user account."
+    type: string
+    enum: [ACTIVE, INACTIVE, PENDING]
+    example: ACTIVE
+  createdTime:
+    description: "The time when the user was created (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T09:00:00Z"
+  updatedTime:
+    description: "The time when the user was last updated (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T10:30:00Z"
+xml:
+  name: User

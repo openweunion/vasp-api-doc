@@ -1,0 +1,50 @@
+post:
+  tags:
+    - Users Endpoints
+  operationId: registerUser
+  summary: Register User
+  description: Register a new user.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            email:
+              type: string
+              description: "The email address of the user."
+              example: "user@example.com"
+            password:
+              type: string
+              format: password
+              minLength: 8
+              maxLength: 64
+              description: "The password for the user."
+              example: "12345678"
+
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - type: object
+                        properties:
+                          userInfo:
+                            $ref: ../components/schemas/User.yaml
+                          token:
+                            $ref: ../components/schemas/Token.yaml
+
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

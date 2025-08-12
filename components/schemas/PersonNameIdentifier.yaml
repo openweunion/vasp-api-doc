@@ -1,0 +1,13 @@
+type: object
+properties:
+  primaryIdentifier:
+    description: "Primary identifier for the person name."
+    type: string
+  secondaryIdentifier:
+    description: "Secondary identifier for the person name."
+    type: string
+example:
+  primaryIdentifier: "Smith"
+  secondaryIdentifier: "John"
+xml:
+  name: PersonNameIdentifier

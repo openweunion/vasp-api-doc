@@ -1,0 +1,55 @@
+post:
+  tags:
+    - Quote Endpoints
+  operationId: ListQuotes
+  summary: List Quotes
+  description: Returns a list of quotes based on the provided parameters.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            sourceVASPId:
+              description: "The ID of the source VASP."
+              type: string
+              $ref: ../components/schemas/VASPId.yaml
+            fromCurrency:
+              description: "The currency of the amount being sold."
+              type: string
+              example: "USDC"
+            toCurrency:
+              description: "The currency of the amount being bought."
+              type: string
+              example: "HKD"
+            fromAmount:
+              description: "The amount being sold in the fromCurrency."
+              type: string
+              example: "100.00"
+            chain:
+              description: "The blockchain network for the transaction."
+              type: string
+              example: "erc20"
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    description: "List of quotes."
+                    oneOf:
+                      - type: array
+                        items:
+                          $ref: ../components/schemas/Quote.yaml
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

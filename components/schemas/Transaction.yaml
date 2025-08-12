@@ -1,0 +1,43 @@
+type: object
+properties:
+  id:
+    $ref: ./TransactionId.yaml
+  quote:
+    description: "Quote information for the transaction."
+    type: object
+    $ref: ./Quote.yaml
+  travelRuleData:
+    description: "Travel Rule data for the transaction."
+    type: object
+    $ref: ./TravelRuleData.yaml
+  withdrawalInfo:
+    description: "Withdrawal information for the transaction."
+    type: object
+    $ref: ./WithdrawalInfo.yaml
+  status:
+    description: "Status of the transaction."
+    type: string
+    enum:
+      - "NEW"
+      - "CANCELLED"
+      - "APPROVED"
+      - "ACCEPTED"
+      - "REJECTED"
+      - "TRANSFERRED"
+      - "COMPLETED"
+  transactionHash:
+    description: "The hash of the transaction."
+    type: [string, "null"]
+    example: null
+  createdTime:
+    description: "The time when the transaction was created (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T09:00:00Z"
+  updatedTime:
+    description: "The time when the transaction was last updated (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T10:30:00Z"
+xml:
+  name: Transaction

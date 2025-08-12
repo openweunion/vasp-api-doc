@@ -1,0 +1,25 @@
+type: object
+properties:
+  type:
+    description: "Type of the fee."
+    type: string
+  currency:
+    description: "Currency of the fee."
+    type: string
+  offrampFee:
+    description: "Offramp fee amount.."
+    type: string
+  gatewayFee:
+    description: "Gateway fee amount."
+    type: string
+  tdsFee:
+    description: "TDS (Tax deductible at Source), in compliance with the regulatory framework set by the regional authority."
+    type: string
+example:
+  type: "fiat"
+  currency: "HKD"
+  offrampFee: "1.00"
+  gatewayFee: "1.00"
+  tdsFee: "0.00"
+xml:
+  name: Fee

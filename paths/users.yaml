@@ -1,0 +1,30 @@
+get:
+  tags:
+    - Users Endpoints
+  operationId: getUser
+  summary: Get User
+  description: Returns information about a user.
+
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - type: object
+                        properties:
+                          userInfo:
+                            $ref: ../components/schemas/User.yaml
+
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

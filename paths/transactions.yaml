@@ -1,0 +1,42 @@
+post:
+  tags:
+    - Offramp Transaction Endpoints
+  operationId: createTransaction
+  summary: Create Transaction
+  description: Create a new transaction.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            quoteId:
+              type: string
+              $ref: ../components/schemas/QuoteID.yaml
+            travelRuleData:
+              type: object
+              $ref: ../components/schemas/TravelRuleData.yaml
+            withdrawalInfo:
+              type: object
+              $ref: ../components/schemas/WithdrawalInfo.yaml
+
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - $ref: ../components/schemas/Transaction.yaml
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

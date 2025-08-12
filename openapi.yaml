@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  version: 0.1.0
+  title: VASP API
+  description: |
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: https://dev.vasp/api/v1
+
+tags:
+  - name: Authentication
+    description: |
+      ### Authentication Instructions
+
+      To authenticate requests, include the following header:
+      - `Authorization: Bearer <your_token>`
+
+      > ⚠️ This header must be present in **protected requests**.
+
+      #### Sample Headers
+      ```javascript
+      const headers = {
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'
+      };
+      ```
+
+  - name: Users Endpoints
+    description: |
+      Endpoints related to user management and authentication.
+
+  - name: VASP Endpoints
+    description: |
+      Endpoints related to Virtual Asset Service Providers (VASPs).
+
+components:
+  securitySchemes:
+    jwt:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        Include JWT token in Authorization header as:
+        `Authorization: Bearer <token>`
+
+security:
+  - jwt: []
+
+paths:
+  "/users":
+    $ref: paths/users.yaml
+  "/users/register":
+    $ref: paths/users_register.yaml
+  "/users/login":
+    $ref: paths/users_login.yaml
+
+  "/vasps/list":
+    $ref: paths/vasps_list.yaml
+
+  "/quotes/list":
+    $ref: paths/quotes_list.yaml
+
+  "/transactions":
+    $ref: paths/transactions.yaml
+  "/transactions/cancel":
+    $ref: paths/transactions_cancel.yaml
+  "/transactions/approve":
+    $ref: paths/transactions_approve.yaml
+  "/transactions/accept":
+    $ref: paths/transactions_accept.yaml
+  "/transactions/reject":
+    $ref: paths/transactions_reject.yaml
+  "/transactions/complete":
+    $ref: paths/transactions_complete.yaml
+  "/transactions/{id}":
+    $ref: paths/transactions_{id}.yaml
+  "/transactions/list":
+    $ref: paths/transactions_list.yaml

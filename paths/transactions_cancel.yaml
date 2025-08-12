@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Offramp Transaction Endpoints
+  operationId: cancelTransaction
+  summary: Cancel Transaction
+  description: Cancel transaction by its ID.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            id:
+              type: string
+              $ref: ../components/schemas/TransactionId.yaml
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - $ref: ../components/schemas/Transaction.yaml
+                    example:
+                      id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
+                      status: "CANCELLED"
+                      createdTime: "2025-08-07T09:00:00Z"
+                      updatedTime: "2025-08-07T10:30:00Z"
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

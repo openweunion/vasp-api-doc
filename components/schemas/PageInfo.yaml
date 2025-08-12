@@ -1,0 +1,17 @@
+type: object
+properties:
+  page:
+    description: "The page number to retrieve."
+    type: number
+  pageSize:
+    description: "The number of items per page."
+    type: number
+  totalRows:
+    description: "The total number of items across all pages."
+    type: number
+example:
+  page: 1
+  pageSize: 10
+  totalRows: 100
+xml:
+  name: PageInfo
