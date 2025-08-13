@@ -4,6 +4,7 @@ post:
   operationId: registerUser
   summary: Register User
   description: Register a new user.
+  security: []
   requestBody:
     required: true
     content:

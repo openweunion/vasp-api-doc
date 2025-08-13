@@ -4,6 +4,7 @@ post:
   operationId: loginUser
   summary: Login User
   description: Login an existing user.
+  security: []
   requestBody:
     required: true
     content:
