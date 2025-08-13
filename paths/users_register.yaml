@@ -23,6 +23,18 @@ post:
               maxLength: 64
               description: "The password for the user."
               example: "12345678"
+            firstName:
+              type: string
+              description: "The first name of the user."
+              example: "John"
+            lastName:
+              type: string
+              description: "The last name of the user."
+              example: "Doe"
+            idNumber:
+              type: string
+              description: "The ID number of the user."
+              example: "123456789"
 
   responses:
     "200":

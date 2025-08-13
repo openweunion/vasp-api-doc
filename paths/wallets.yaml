@@ -34,25 +34,6 @@ post:
   operationId: createWallet
   summary: Create Wallet
   description: Create a new wallet for a user.
-  requestBody:
-    required: true
-    content:
-      application/json:
-        schema:
-          type: object
-          properties:
-            firstName:
-              type: string
-              description: "The first name of the user."
-              example: "John"
-            lastName:
-              type: string
-              description: "The last name of the user."
-              example: "Doe"
-            idNumber:
-              type: string
-              description: "The ID number of the user."
-              example: "123456789"
 
   responses:
     "200":
