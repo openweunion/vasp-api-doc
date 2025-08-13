@@ -55,6 +55,9 @@ paths:
   "/users/login":
     $ref: paths/users_login.yaml
 
+  "/wallets":
+    $ref: paths/wallets.yaml
+
   "/vasps/list":
     $ref: paths/vasps_list.yaml
 

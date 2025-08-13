@@ -1,0 +1,79 @@
+get:
+  tags:
+    - Wallets Endpoints
+  operationId: getWallet
+  summary: Get Wallet
+  description: Returns information about a wallet.
+
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - type: array
+                        items:
+                          $ref: ../components/schemas/Wallet.yaml
+
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml
+
+post:
+  tags:
+    - Wallets Endpoints
+  operationId: createWallet
+  summary: Create Wallet
+  description: Create a new wallet for a user.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            firstName:
+              type: string
+              description: "The first name of the user."
+              example: "John"
+            lastName:
+              type: string
+              description: "The last name of the user."
+              example: "Doe"
+            idNumber:
+              type: string
+              description: "The ID number of the user."
+              example: "123456789"
+
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - type: object
+                        properties:
+                          walletInfo:
+                            $ref: ../components/schemas/Wallet.yaml
+
+    "400":
+      description: Bad Request
+      $ref: ../components/responses/Problem.yaml
+    "403":
+      description: Forbidden
+      $ref: ../components/responses/Problem.yaml

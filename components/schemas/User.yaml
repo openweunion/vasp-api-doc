@@ -6,24 +6,26 @@ properties:
     description: "The email address of the user."
     type: string
     example: "user@example.com"
-  walletAddress:
-    description: "The wallet address of the user."
+  firstName:
+    description: "The first name of the user."
     type: string
-    example: "0x1234567890abcdef1234567890abcdef12345678"
+    example: "John"
+  lastName:
+    description: "The last name of the user."
+    type: string
+    example: "Doe"
+  idNumber:
+    description: "The ID number of the user."
+    type: string
+    example: "123456789"
+  walletSetId:
+    description: "The ID of the wallet set associated with the user."
+    type: string
+    example: "wallet-set-12345"
   status:
     description: "Status of the user account."
     type: string
     enum: [ACTIVE, INACTIVE, PENDING]
     example: ACTIVE
-  createdTime:
-    description: "The time when the user was created (ISO 8601 format)."
-    type: string
-    format: date-time
-    example: "2025-08-07T09:00:00Z"
-  updatedTime:
-    description: "The time when the user was last updated (ISO 8601 format)."
-    type: string
-    format: date-time
-    example: "2025-08-07T10:30:00Z"
 xml:
   name: User

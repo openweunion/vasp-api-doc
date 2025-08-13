@@ -1,0 +1,37 @@
+type: object
+properties:
+  id:
+    $ref: ./WalletId.yaml
+  state:
+    description: "The state of the wallet."
+    type: string
+    example: LIVE
+  walletSetId:
+    description: "The ID of the wallet set associated with the wallet."
+    type: string
+    example: "wallet-set-12345"
+  custodyType:
+    description: "The custody type of the wallet."
+    type: string
+    example: DEVELOPER
+  address:
+    description: "The address of the wallet."
+    type: string
+    example: "0x1234567890abcdef1234567890abcdef12345678"
+  blockchain:
+    description: "The blockchain associated with the wallet."
+    type: string
+    example: ETH
+  createDate:
+    description: "The date when the wallet was created (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T09:00:00Z"
+  updateDate:
+    description: "The date when the wallet was last updated (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T10:30:00Z"
+
+xml:
+  name: Wallet
