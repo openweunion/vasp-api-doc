@@ -34,6 +34,22 @@ tags:
     description: |
       Endpoints related to Virtual Asset Service Providers (VASPs).
 
+  - name: Wallets Endpoints
+    description: |
+      Endpoints related to wallet management.
+
+  - name: Quotes Endpoints
+    description: |
+      Endpoints for managing quotes related to transactions.
+
+  - name: Offramp Transaction Endpoints
+    description: |
+      Endpoints for managing offramp transactions, including creation, approval, and cancellation.
+
+  - name: Webhook Endpoints
+    description: |
+      Endpoints for receiving webhook notifications from external services.
+
 components:
   securitySchemes:
     jwt:
@@ -80,3 +96,6 @@ paths:
     $ref: paths/transactions_{id}.yaml
   "/transactions/list":
     $ref: paths/transactions_list.yaml
+
+  "/webhook":
+    $ref: paths/webhook.yaml

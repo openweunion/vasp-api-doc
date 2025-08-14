@@ -1,6 +1,6 @@
 post:
   tags:
-    - Quote Endpoints
+    - Quotes Endpoints
   operationId: ListQuotes
   summary: List Quotes
   description: Returns a list of quotes based on the provided parameters.
