@@ -16,8 +16,10 @@ get:
               - type: object
                 properties:
                   data:
-                    oneOf:
-                      - type: array
+                    type: object
+                    properties:
+                      wallets:
+                        type: array
                         items:
                           $ref: ../components/schemas/Wallet.yaml
 
@@ -46,11 +48,11 @@ post:
               - type: object
                 properties:
                   data:
-                    oneOf:
-                      - type: object
-                        properties:
-                          walletInfo:
-                            $ref: ../components/schemas/Wallet.yaml
+                    type: object
+                    properties:
+                      wallet:
+                        type: object
+                        $ref: ../components/schemas/Wallet.yaml
 
     "400":
       description: Bad Request
