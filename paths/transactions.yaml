@@ -1,6 +1,6 @@
 post:
   tags:
-    - Offramp Transaction Endpoints
+    - Off-Ramp Transaction Endpoints
   operationId: createTransaction
   summary: Create Transaction
   description: Create a new transaction.
@@ -10,7 +10,22 @@ post:
       application/json:
         schema:
           type: object
+          required:
+            - originatorVASPId
+            - beneficiaryVASPId
+            - originatorCustomerId
+            - quoteId
+            - withdrawalInfo
           properties:
+            originatorVASPId:
+              type: string
+              $ref: ../components/schemas/VASPId.yaml
+            beneficiaryVASPId:
+              type: string
+              $ref: ../components/schemas/VASPId.yaml
+            originatorCustomerId:
+              type: string
+              $ref: ../components/schemas/CustomerId.yaml
             quoteId:
               type: string
               $ref: ../components/schemas/QuoteId.yaml
@@ -33,10 +48,13 @@ post:
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../components/schemas/Transaction.yaml
+                      - $ref: ../components/schemas/OffRampTransaction.yaml
     "400":
       description: Bad Request
-      $ref: ../components/responses/Problem.yaml
-    "403":
-      description: Forbidden
-      $ref: ../components/responses/Problem.yaml
+      $ref: ../components/responses/Problem-400.yaml
+    "401":
+      description: Unauthorized
+      $ref: ../components/responses/Problem-401.yaml
+    "500":
+      description: Internal Server Error
+      $ref: ../components/responses/Problem-500.yaml

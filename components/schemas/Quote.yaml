@@ -1,14 +1,14 @@
 type: object
 properties:
   id:
-    $ref: QuoteId.yaml
+    $ref: ./QuoteId.yaml
   sourceVASPId:
     type: string
     $ref: ./VASPId.yaml
   paymentCompany:
     description: "The payment company connected to the VASP."
     type: string
-    example: "HashKey"
+    example: "EX.IO"
   fromAmount:
     description: "The amount being sent from the sender's account."
     type: string
@@ -26,9 +26,13 @@ properties:
     type: string
     example: "HKD"
   chain:
-    description: "The blockchain network used for the transaction."
+    description: "The blockchain network for the transaction, formatted as 'eip155:<chainId>'."
     type: string
-    example: "erc20"
+    enum:
+      - eip155:1 # Ethereum Mainnet
+      - eip155:56 # BNB Smart Chain
+      - eip155:137 # Polygon Mainnet
+    example: eip155:1
   rate:
     description: "The exchange rate applied to the transaction."
     type: string

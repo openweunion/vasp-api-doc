@@ -38,11 +38,7 @@ tags:
     description: |
       Endpoints related to wallet management.
 
-  - name: Quotes Endpoints
-    description: |
-      Endpoints for managing quotes related to transactions.
-
-  - name: Offramp Transaction Endpoints
+  - name: Off-Ramp Transaction Endpoints
     description: |
       Endpoints for managing offramp transactions, including creation, approval, and cancellation.
 
@@ -77,26 +73,25 @@ paths:
   "/vasps/list":
     $ref: paths/vasps_list.yaml
 
-  "/quotes/list":
+  "/offramp/quotes/list":
     $ref: paths/quotes_list.yaml
-
-  "/transactions":
+  "/offramp/transactions":
     $ref: paths/transactions.yaml
-  "/transactions/cancel":
+  "/offramp/transactions/cancel":
     $ref: paths/transactions_cancel.yaml
-  "/transactions/approve":
+  "/offramp/transactions/approve":
     $ref: paths/transactions_approve.yaml
-  "/transactions/accept":
+  "/offramp/transactions/accept":
     $ref: paths/transactions_accept.yaml
-  "/transactions/reject":
+  "/offramp/transactions/reject":
     $ref: paths/transactions_reject.yaml
-  "/transactions/transfer":
+  "/offramp/transactions/transfer":
     $ref: paths/transactions_transfer.yaml
-  "/transactions/complete":
+  "/offramp/transactions/complete":
     $ref: paths/transactions_complete.yaml
-  "/transactions/{id}":
+  "/offramp/transactions/{id}":
     $ref: paths/transactions_{id}.yaml
-  "/transactions/list":
+  "/offramp/transactions/list":
     $ref: paths/transactions_list.yaml
 
   "/webhook":

@@ -1,6 +1,6 @@
 post:
   tags:
-    - Offramp Transaction Endpoints
+    - Off-Ramp Transaction Endpoints
   operationId: completeTransaction
   summary: Complete Transaction
   description: Complete transaction by its ID.
@@ -10,6 +10,8 @@ post:
       application/json:
         schema:
           type: object
+          required:
+            - id
           properties:
             id:
               type: string
@@ -26,7 +28,7 @@ post:
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../components/schemas/Transaction.yaml
+                      - $ref: ../components/schemas/OffRampTransaction.yaml
                     example:
                       id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
                       status: "COMPLETED"
@@ -34,7 +36,10 @@ post:
                       updatedTime: "2025-08-07T10:30:00Z"
     "400":
       description: Bad Request
-      $ref: ../components/responses/Problem.yaml
-    "403":
-      description: Forbidden
-      $ref: ../components/responses/Problem.yaml
+      $ref: ../components/responses/Problem-400.yaml
+    "401":
+      description: Unauthorized
+      $ref: ../components/responses/Problem-401.yaml
+    "500":
+      description: Internal Server Error
+      $ref: ../components/responses/Problem-500.yaml

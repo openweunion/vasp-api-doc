@@ -1,4 +1,9 @@
 type: object
+required:
+  - accNo
+  - ccy
+  - qty
+  - remitChannel
 properties:
   accNo:
     description: "Account Number (for fiat only)"

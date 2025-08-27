@@ -2,10 +2,16 @@ type: object
 properties:
   id:
     $ref: ./TransactionId.yaml
-  quote:
-    description: "Quote information for the transaction."
-    type: object
-    $ref: ./Quote.yaml
+  originatorVASPId:
+    $ref: ./VASPId.yaml
+  beneficiaryVASPId:
+    $ref: ./VASPId.yaml
+  originatorCustomerId:
+    type: string
+    $ref: ./CustomerId.yaml
+  quoteId:
+    type: string
+    $ref: ./QuoteId.yaml
   travelRuleData:
     description: "Travel Rule data for the transaction."
     type: object
@@ -23,6 +29,7 @@ properties:
       - "APPROVED"
       - "ACCEPTED"
       - "REJECTED"
+      - "PENDING_TRANSFER"
       - "TRANSFERRED"
       - "COMPLETED"
   transactionHash:
@@ -40,4 +47,4 @@ properties:
     format: date-time
     example: "2025-08-07T10:30:00Z"
 xml:
-  name: Transaction
+  name: OffRampTransaction

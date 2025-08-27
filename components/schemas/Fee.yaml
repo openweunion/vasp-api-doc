@@ -7,7 +7,7 @@ properties:
     description: "Currency of the fee."
     type: string
   offrampFee:
-    description: "Offramp fee amount.."
+    description: "Off-Ramp fee amount.."
     type: string
   gatewayFee:
     description: "Gateway fee amount."

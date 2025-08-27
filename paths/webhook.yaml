@@ -10,6 +10,10 @@ post:
       application/json:
         schema:
           type: object
+          required:
+            - message
+            - payload
+            - version
           properties:
             message:
               type: string
@@ -21,7 +25,7 @@ post:
               properties:
                 transaction:
                   oneOf:
-                    - $ref: ../components/schemas/Transaction.yaml
+                    - $ref: ../components/schemas/OffRampTransaction.yaml
                   example:
                     id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
                     status: "APPROVED"
@@ -47,7 +51,10 @@ post:
 
     "400":
       description: Bad Request
-      $ref: ../components/responses/Problem.yaml
-    "403":
-      description: Forbidden
-      $ref: ../components/responses/Problem.yaml
+      $ref: ../components/responses/Problem-400.yaml
+    "401":
+      description: Unauthorized
+      $ref: ../components/responses/Problem-401.yaml
+    "500":
+      description: Internal Server Error
+      $ref: ../components/responses/Problem-500.yaml
