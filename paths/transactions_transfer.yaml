@@ -1,9 +1,9 @@
 post:
   tags:
     - Offramp Transaction Endpoints
-  operationId: createTransaction
-  summary: Create Transaction
-  description: Create a new transaction.
+  operationId: transferTransaction
+  summary: Transfer Transaction
+  description: Transfer transaction by its ID.
   requestBody:
     required: true
     content:
@@ -11,16 +11,9 @@ post:
         schema:
           type: object
           properties:
-            quoteId:
+            id:
               type: string
-              $ref: ../components/schemas/QuoteId.yaml
-            travelRuleData:
-              type: object
-              $ref: ../components/schemas/TravelRuleData.yaml
-            withdrawalInfo:
-              type: object
-              $ref: ../components/schemas/WithdrawalInfo.yaml
-
+              $ref: ../components/schemas/TransactionId.yaml
   responses:
     "200":
       description: Success
@@ -34,6 +27,11 @@ post:
                   data:
                     oneOf:
                       - $ref: ../components/schemas/Transaction.yaml
+                    example:
+                      id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
+                      status: "TRANSFERRED"
+                      createdTime: "2025-08-07T09:00:00Z"
+                      updatedTime: "2025-08-07T10:30:00Z"
     "400":
       description: Bad Request
       $ref: ../components/responses/Problem.yaml
