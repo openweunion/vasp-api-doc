@@ -83,6 +83,10 @@ paths:
     $ref: paths/onRamp/transactions.yaml
   "/onramp/transactions/deposit":
     $ref: paths/onRamp/transactions_deposit.yaml
+  "/onramp/transactions/{id}":
+    $ref: paths/onRamp/transactions_{id}.yaml
+  "/onramp/transactions/list":
+    $ref: paths/onRamp/transactions_list.yaml
 
   "/offramp/quotes/list":
     $ref: paths/offRamp/quotes_list.yaml

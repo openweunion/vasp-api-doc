@@ -1,7 +1,7 @@
 get:
   tags:
-    - On-Ramp Transaction Endpoints
-  operationId: getOnRampTransactionById
+    - Off-Ramp Transaction Endpoints
+  operationId: getTransactionById
   summary: Get Transaction
   description: Returns information about a transaction that has the specified Id.
   parameters:
@@ -23,7 +23,7 @@ get:
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../../components/schemas/OnRampTransaction.yaml
+                      - $ref: ../../components/schemas/OffRampTransaction.yaml
     "400":
       description: Bad Request
       $ref: ../../components/responses/Problem-400.yaml
