@@ -7,7 +7,7 @@ properties:
     description: "Currency of the fee."
     type: string
   offrampFee:
-    description: "Off-Ramp fee amount.."
+    description: "Off-Ramp fee amount."
     type: string
   gatewayFee:
     description: "Gateway fee amount."
@@ -22,4 +22,4 @@ example:
   gatewayFee: "1.00"
   tdsFee: "0.00"
 xml:
-  name: Fee
+  name: OffRampFee

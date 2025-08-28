@@ -1,7 +1,7 @@
 post:
   tags:
     - Off-Ramp Transaction Endpoints
-  operationId: ListQuotes
+  operationId: ListOffRampQuotes
   summary: List Quotes
   description: Returns a list of quotes based on the provided parameters.
   requestBody:
@@ -43,7 +43,7 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: ../components/schemas/Response.yaml
+              - $ref: ../../components/schemas/Response.yaml
               - type: object
                 properties:
                   data:
@@ -51,13 +51,13 @@ post:
                     oneOf:
                       - type: array
                         items:
-                          $ref: ../components/schemas/Quote.yaml
+                          $ref: ../../components/schemas/OffRampQuote.yaml
     "400":
       description: Bad Request
-      $ref: ../components/responses/Problem-400.yaml
+      $ref: ../../components/responses/Problem-400.yaml
     "401":
       description: Unauthorized
-      $ref: ../components/responses/Problem-401.yaml
+      $ref: ../../components/responses/Problem-401.yaml
     "500":
       description: Internal Server Error
-      $ref: ../components/responses/Problem-500.yaml
+      $ref: ../../components/responses/Problem-500.yaml

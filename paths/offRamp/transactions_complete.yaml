@@ -1,9 +1,9 @@
 post:
   tags:
     - Off-Ramp Transaction Endpoints
-  operationId: transferTransaction
-  summary: Transfer Transaction
-  description: Transfer transaction by its ID.
+  operationId: completeTransaction
+  summary: Complete Transaction
+  description: Complete transaction by its ID and referenceId.
   requestBody:
     required: true
     content:
@@ -12,10 +12,15 @@ post:
           type: object
           required:
             - id
+            - referenceId
           properties:
             id:
               type: string
-              $ref: ../components/schemas/TransactionId.yaml
+              $ref: ../../components/schemas/TransactionId.yaml
+            referenceId:
+              type: string
+              description: "Bank or payment provider reference ID for withdrawal."
+              example: "BANK-TRX-20250827-001"
   responses:
     "200":
       description: Success
@@ -23,23 +28,23 @@ post:
         application/json:
           schema:
             allOf:
-              - $ref: ../components/schemas/Response.yaml
+              - $ref: ../../components/schemas/Response.yaml
               - type: object
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../components/schemas/OffRampTransaction.yaml
+                      - $ref: ../../components/schemas/OffRampTransaction.yaml
                     example:
                       id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
-                      status: "TRANSFERRED"
+                      status: "COMPLETED"
                       createdTime: "2025-08-07T09:00:00Z"
                       updatedTime: "2025-08-07T10:30:00Z"
     "400":
       description: Bad Request
-      $ref: ../components/responses/Problem-400.yaml
+      $ref: ../../components/responses/Problem-400.yaml
     "401":
       description: Unauthorized
-      $ref: ../components/responses/Problem-401.yaml
+      $ref: ../../components/responses/Problem-401.yaml
     "500":
       description: Internal Server Error
-      $ref: ../components/responses/Problem-500.yaml
+      $ref: ../../components/responses/Problem-500.yaml

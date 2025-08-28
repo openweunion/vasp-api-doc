@@ -16,7 +16,7 @@ properties:
   toAmount:
     description: "The amount being received by the recipient's account."
     type: string
-    example: "100.00"
+    example: "780.00"
   fromCurrency:
     description: "The currency of the amount being sent."
     type: string
@@ -45,6 +45,6 @@ properties:
   fee:
     description: "The fees associated with the transaction."
     type: object
-    $ref: ./Fee.yaml
+    $ref: ./OffRampFee.yaml
 xml:
-  name: Quote
+  name: OffRampQuote

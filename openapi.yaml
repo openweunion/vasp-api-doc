@@ -40,7 +40,7 @@ tags:
 
   - name: Off-Ramp Transaction Endpoints
     description: |
-      Endpoints for managing offramp transactions, including creation, approval, and cancellation.
+      Endpoints for managing off-ramp transactions, including creation, approval, cancellation and so on.
 
   - name: Webhook Endpoints
     description: |
@@ -74,25 +74,25 @@ paths:
     $ref: paths/vasps_list.yaml
 
   "/offramp/quotes/list":
-    $ref: paths/quotes_list.yaml
+    $ref: paths/offRamp/quotes_list.yaml
   "/offramp/transactions":
-    $ref: paths/transactions.yaml
+    $ref: paths/offRamp/transactions.yaml
   "/offramp/transactions/cancel":
-    $ref: paths/transactions_cancel.yaml
+    $ref: paths/offRamp/transactions_cancel.yaml
   "/offramp/transactions/approve":
-    $ref: paths/transactions_approve.yaml
+    $ref: paths/offRamp/transactions_approve.yaml
   "/offramp/transactions/accept":
-    $ref: paths/transactions_accept.yaml
+    $ref: paths/offRamp/transactions_accept.yaml
   "/offramp/transactions/reject":
-    $ref: paths/transactions_reject.yaml
+    $ref: paths/offRamp/transactions_reject.yaml
   "/offramp/transactions/transfer":
-    $ref: paths/transactions_transfer.yaml
+    $ref: paths/offRamp/transactions_transfer.yaml
   "/offramp/transactions/complete":
-    $ref: paths/transactions_complete.yaml
+    $ref: paths/offRamp/transactions_complete.yaml
   "/offramp/transactions/{id}":
-    $ref: paths/transactions_{id}.yaml
+    $ref: paths/offRamp/transactions_{id}.yaml
   "/offramp/transactions/list":
-    $ref: paths/transactions_list.yaml
+    $ref: paths/offRamp/transactions_list.yaml
 
   "/webhook":
     $ref: paths/webhook.yaml
