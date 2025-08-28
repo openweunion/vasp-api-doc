@@ -1,0 +1,25 @@
+type: object
+properties:
+  type:
+    description: "Type of the fee."
+    type: string
+  currency:
+    description: "Currency of the fee."
+    type: string
+  onrampFee:
+    description: "On-Ramp fee amount."
+    type: string
+  gatewayFee:
+    description: "Gateway fee amount."
+    type: string
+  gasFee:
+    description: "Blockchain gas fee for the transfer."
+    type: string
+example:
+  type: "fiat"
+  currency: "USD"
+  onrampFee: "1.00"
+  gatewayFee: "0.00"
+  gasFee: "3.00"
+xml:
+  name: OnRampFee

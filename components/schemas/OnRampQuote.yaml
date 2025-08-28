@@ -1,0 +1,43 @@
+type: object
+properties:
+  id:
+    $ref: ./QuoteId.yaml
+  fromAmount:
+    description: "The amount being sent from the sender's account."
+    type: string
+    example: "100.00"
+  toAmount:
+    description: "The amount being received by the recipient's account."
+    type: string
+    example: "100.00"
+  fromCurrency:
+    description: "The currency of the amount being sent."
+    type: string
+    example: "USD"
+  toCurrency:
+    description: "The currency of the amount being received."
+    type: string
+    example: "USDC"
+  chain:
+    description: "The blockchain network for the transaction, formatted as 'eip155:<chainId>'."
+    type: string
+    enum:
+      - eip155:1 # Ethereum Mainnet
+      - eip155:56 # BNB Smart Chain
+      - eip155:137 # Polygon Mainnet
+    example: eip155:1
+  rate:
+    description: "The exchange rate applied to the transaction."
+    type: string
+    example: "1.00"
+  expiredTime:
+    description: "The time when the quote expires (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-08T15:04:05Z"
+  fee:
+    description: "The fees associated with the transaction."
+    type: object
+    $ref: ./OnRampFee.yaml
+xml:
+  name: OnRampQuote

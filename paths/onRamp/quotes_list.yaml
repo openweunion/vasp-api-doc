@@ -1,0 +1,63 @@
+post:
+  tags:
+    - On-Ramp Transaction Endpoints
+  operationId: ListOnRampQuotes
+  summary: List Quotes
+  description: Returns a list of quotes based on the provided parameters.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - fromCurrency
+            - toCurrency
+            - fromAmount
+            - chain
+          properties:
+            fromCurrency:
+              description: "The currency of the amount being sold."
+              type: string
+              example: "USD"
+            toCurrency:
+              description: "The currency of the amount being bought."
+              type: string
+              example: "USDC"
+            fromAmount:
+              description: "The amount being sold in the fromCurrency."
+              type: string
+              example: "100.00"
+            chain:
+              description: "The blockchain network for the transaction, formatted as 'eip155:<chainId>'."
+              type: string
+              enum:
+                - eip155:1 # Ethereum Mainnet
+                - eip155:56 # BNB Smart Chain
+                - eip155:137 # Polygon Mainnet
+              example: eip155:1
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../../components/schemas/Response.yaml
+              - type: object
+                properties:
+                  data:
+                    description: "List of quotes."
+                    oneOf:
+                      - type: array
+                        items:
+                          $ref: ../../components/schemas/OnRampQuote.yaml
+    "400":
+      description: Bad Request
+      $ref: ../../components/responses/Problem-400.yaml
+    "401":
+      description: Unauthorized
+      $ref: ../../components/responses/Problem-401.yaml
+    "500":
+      description: Internal Server Error
+      $ref: ../../components/responses/Problem-500.yaml

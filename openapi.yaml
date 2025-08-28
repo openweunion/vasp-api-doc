@@ -38,6 +38,10 @@ tags:
     description: |
       Endpoints related to wallet management.
 
+  - name: On-Ramp Transaction Endpoints
+    description: |
+      Endpoints for managing on-ramp transactions, including creation, cancellation and so on.
+
   - name: Off-Ramp Transaction Endpoints
     description: |
       Endpoints for managing off-ramp transactions, including creation, approval, cancellation and so on.
@@ -72,6 +76,13 @@ paths:
 
   "/vasps/list":
     $ref: paths/vasps_list.yaml
+
+  "/onramp/quotes/list":
+    $ref: paths/onRamp/quotes_list.yaml
+  "/onramp/transactions":
+    $ref: paths/onRamp/transactions.yaml
+  "/onramp/transactions/deposit":
+    $ref: paths/onRamp/transactions_deposit.yaml
 
   "/offramp/quotes/list":
     $ref: paths/offRamp/quotes_list.yaml

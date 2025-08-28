@@ -1,0 +1,49 @@
+type: object
+properties:
+  id:
+    $ref: ./TransactionId.yaml
+  quoteId:
+    $ref: ./QuoteId.yaml
+  recipientAddress:
+    description: "Blockchain wallet address of the recipient."
+    type: string
+    example: "0x1234567890abcdef1234567890abcdef12345678"
+  transferMethod:
+    description: "Transfer method used for the deposit."
+    type: string
+    enum:
+      - "FPS"
+      - "SWIFT"
+      - "RTGS"
+    example: "FPS"
+  depositInfo:
+    description: "Deposit bank account information for the transaction."
+    $ref: ./DepositInfo.yaml
+  status:
+    description: "Status of the transaction."
+    type: string
+    enum:
+      - "NEW"
+      - "DEPOSIT_CONFIRMED"
+      - "PENDING_ONRAMP"
+      - "COMPLETED"
+  referenceId:
+    description: "Bank or payment provider reference ID for deposit."
+    type: [string, "null"]
+    example: null
+  transactionHash:
+    description: "The blockchain transaction hash of the on-ramp transfer."
+    type: [string, "null"]
+    example: null
+  createdTime:
+    description: "The time when the transaction was created (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T09:00:00Z"
+  updatedTime:
+    description: "The time when the transaction was last updated (ISO 8601 format)."
+    type: string
+    format: date-time
+    example: "2025-08-07T10:30:00Z"
+xml:
+  name: OnRampTransaction

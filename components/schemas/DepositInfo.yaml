@@ -1,0 +1,63 @@
+type: object
+description: "Bank account details required for fiat deposit."
+properties:
+  accountNumber:
+    type: string
+    description: "The bank account number for deposit."
+    example: "12340010"
+
+  routingNumber:
+    type: string
+    description: "The bank routing number (e.g., ABA number in the US)."
+    example: "121000248"
+
+  billingDetails:
+    type: object
+    description: "Account holder information."
+    properties:
+      name:
+        type: string
+        example: "Satoshi Nakamoto"
+      city:
+        type: string
+        example: "Boston"
+      country:
+        type: string
+        example: "US"
+      line1:
+        type: string
+        example: "100 Money Street"
+      line2:
+        type: string
+        example: "Suite 1"
+      district:
+        type: string
+        example: "MA"
+      postalCode:
+        type: string
+        example: "01234"
+
+  bankAddress:
+    type: object
+    description: "Recipient bank address information."
+    properties:
+      bankName:
+        type: string
+        example: "SAN FRANCISCO"
+      city:
+        type: string
+        example: "SAN FRANCISCO"
+      country:
+        type: string
+        example: "US"
+      line1:
+        type: string
+        example: "100 Money Street"
+      line2:
+        type: string
+        example: "Suite 1"
+      district:
+        type: string
+        example: "CA"
+xml:
+  name: DepositInfo
