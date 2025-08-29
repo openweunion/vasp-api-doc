@@ -30,6 +30,14 @@ properties:
     description: "The exchange rate applied to the transaction."
     type: string
     example: "1.00"
+  paymentMethod:
+    description: "Payment method used for the deposit."
+    type: string
+    enum:
+      - "FPS"
+      - "SWIFT"
+      - "RTGS"
+    example: "FPS"
   expiredTime:
     description: "The time when the quote expires (ISO 8601 format)."
     type: string

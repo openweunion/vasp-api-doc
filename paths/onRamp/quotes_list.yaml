@@ -15,6 +15,7 @@ post:
             - toCurrency
             - fromAmount
             - chain
+            - paymentMethod
           properties:
             fromCurrency:
               description: "The currency of the amount being sold."
@@ -36,6 +37,14 @@ post:
                 - eip155:56 # BNB Smart Chain
                 - eip155:137 # Polygon Mainnet
               example: eip155:1
+            paymentMethod:
+              description: "Payment method used for the deposit."
+              type: string
+              enum:
+                - "FPS"
+                - "SWIFT"
+                - "RTGS"
+              example: "FPS"
   responses:
     "200":
       description: Success

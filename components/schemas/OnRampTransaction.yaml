@@ -8,14 +8,6 @@ properties:
     description: "Blockchain wallet address of the recipient."
     type: string
     example: "0x1234567890abcdef1234567890abcdef12345678"
-  transferMethod:
-    description: "Transfer method used for the deposit."
-    type: string
-    enum:
-      - "FPS"
-      - "SWIFT"
-      - "RTGS"
-    example: "FPS"
   depositInfo:
     description: "Deposit bank account information for the transaction."
     $ref: ./DepositInfo.yaml

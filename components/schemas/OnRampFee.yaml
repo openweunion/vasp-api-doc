@@ -16,8 +16,8 @@ properties:
     description: "Blockchain gas fee for the transfer."
     type: string
 example:
-  type: "fiat"
-  currency: "USD"
+  type: "crypto"
+  currency: "USDC"
   onrampFee: "1.00"
   gatewayFee: "0.00"
   gasFee: "3.00"
