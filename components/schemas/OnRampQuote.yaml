@@ -2,6 +2,10 @@ type: object
 properties:
   id:
     $ref: ./QuoteId.yaml
+  paymentCompany:
+    description: "The payment company connected to the VASP."
+    type: string
+    example: "CIRCLE"
   fromAmount:
     description: "The amount being sent from the sender's account."
     type: string
