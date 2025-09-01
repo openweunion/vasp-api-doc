@@ -1,7 +1,7 @@
 get:
   tags:
-    - Off-Ramp Transaction Endpoints
-  operationId: getTransactionById
+    - On-Ramp Transaction Endpoints
+  operationId: getOnRampTransactionById
   summary: Get Transaction
   description: Returns information about a transaction that has the specified Id.
   parameters:
