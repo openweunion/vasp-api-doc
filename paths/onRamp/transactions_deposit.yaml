@@ -33,7 +33,7 @@ post:
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../../components/schemas/OffRampTransaction.yaml
+                      - $ref: ../../components/schemas/OnRampTransaction.yaml
                     example:
                       id: "8cdd5b98-86d3-4921-8bb3-a2920f9bb350"
                       status: "DEPOSIT_CONFIRMED"

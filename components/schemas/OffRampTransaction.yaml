@@ -9,9 +9,6 @@ properties:
   originatorCustomerId:
     type: string
     $ref: ./CustomerId.yaml
-  quoteId:
-    type: string
-    $ref: ./QuoteId.yaml
   travelRuleData:
     description: "Travel Rule data for the transaction."
     type: object
@@ -20,6 +17,9 @@ properties:
     description: "Withdrawal information for the transaction."
     type: object
     $ref: ./WithdrawalInfo.yaml
+  quote:
+    description: "Quote information for the transaction."
+    $ref: OffRampQuote.yaml
   status:
     description: "Status of the transaction."
     type: string

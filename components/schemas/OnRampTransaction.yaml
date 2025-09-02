@@ -2,8 +2,6 @@ type: object
 properties:
   id:
     $ref: ./TransactionId.yaml
-  quoteId:
-    $ref: ./QuoteId.yaml
   recipientAddress:
     description: "Blockchain wallet address of the recipient."
     type: string
@@ -11,6 +9,9 @@ properties:
   depositInfo:
     description: "Deposit bank account information for the transaction."
     $ref: ./DepositInfo.yaml
+  quote:
+    description: "Quote information for the transaction."
+    $ref: OnRampQuote.yaml
   status:
     description: "Status of the transaction."
     type: string

@@ -23,7 +23,7 @@ get:
                 properties:
                   data:
                     oneOf:
-                      - $ref: ../../components/schemas/OffRampTransaction.yaml
+                      - $ref: ../../components/schemas/OnRampTransaction.yaml
     "400":
       description: Bad Request
       $ref: ../../components/responses/Problem-400.yaml
